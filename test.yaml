@@ -9,7 +9,7 @@
     ansible_password: hamed225
     ansible_become: true
     ansible_become_method: enable
-    ansible_become_password: !vault...
+    ansible_become_password: hamed225
     ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q bastion01"'
 
   tasks:
