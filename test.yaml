@@ -10,5 +10,5 @@
   tasks:
     - name: Display resource statistics (routeros)
       routeros_command:
-        commands: /system resource print
-      register: routeros_resources
+        commands: ping count=10 8.8.8.8
+
