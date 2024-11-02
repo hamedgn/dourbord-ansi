@@ -5,7 +5,7 @@
   vars:
     ansible_network_os: routeros
     ansible_user: noc
-
+    ansible_password: 123
   tasks:
     - name: Display resource statistics (routeros)
       routeros_command:
