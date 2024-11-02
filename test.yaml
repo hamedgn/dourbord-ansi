@@ -3,12 +3,18 @@
   connection: network_cli
 
   vars:
-    ansible_network_os: routeros
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: community.network.routeros
     ansible_user: noc
     ansible_password: 123
+    ansible_become: true
+    ansible_become_method: enable
+    ansible_become_password: 123
+    ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q bastion01"'
+    
   tasks:
     - name: Display resource statistics (routeros)
-      routeros_command:
+      community.network.routeros_command:
         commands: /system resource print
-        
-
+      register: routeros_resources
+      when: ansible_network_os == 'community.network.routeros'
